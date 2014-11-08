@@ -1,4 +1,4 @@
-package igeek;
+package igeek.t1to10;
 
 import java.util.Arrays;
 

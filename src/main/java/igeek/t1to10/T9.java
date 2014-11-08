@@ -1,4 +1,4 @@
-package igeek;
+package igeek.t1to10;
 
 import static java.lang.System.out;
 import java.util.stream.IntStream;
