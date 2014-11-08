@@ -1,40 +1,56 @@
 package igeek;
 
-import static java.lang.System.out;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Stream;
+import java.util.Arrays;
 
 public class T10 {
-	private int max = 200000;
-	List<Integer> primes = new ArrayList<>();
+	private static final int MAX = 2_000_001;
+	private boolean[] arr = new boolean[MAX];
+	{
+		Arrays.fill(arr, true);
+		arr[0] = false;
+		arr[1] = false;
+	}
 
 	public T10() {
-		Stream
-		.iterate(2, a -> a + 1)
-		.filter(a -> isPrime(a))
-		.peek(a -> addPrime(a))
-		.filter(a -> a >= max)
-		.limit(1)
-		.forEach(a -> out.println(a));
-		
-		out.println(primes.size());
-		
-		long l = primes.stream().parallel().mapToInt(Integer::intValue).sum();
-		out.println(l);
-	}
-	
-	void addPrime(int i){
-		if (i < max)
-			primes.add(i);
+		Factor factor = new Factor(2, true);
+		while (factor.found) {
+			harvest(factor.val);
+			factor = nextPrime(factor.val);
+		}
+		long sum = 0;
+		for (int i = 0; i < MAX; i++) {
+			if (arr[i]) {
+				sum += i;
+			}
+		}
+		System.out.println(sum);
 	}
 
-	boolean isPrime(int i) {
-		Stream<Integer> s = primes
-				.stream()
-				.filter(a -> i % a == 0)
-				.limit(1);
-		return (s.count() == 0) ? true : false;
+	Factor nextPrime(int last) {
+		while (++last < MAX && !arr[last]) {
+		}
+		if (last < MAX)
+			return new Factor(last, true);
+		else
+			return new Factor(-1, false);
+	}
+
+	void harvest(int factor) {
+		int multiplier = 2;
+		while (factor * multiplier < MAX) {
+			arr[factor * multiplier] = false;
+			multiplier++;
+		}
+	}
+
+	static class Factor {
+		int val;
+		boolean found;
+
+		Factor(int value, boolean found) {
+			this.found = found;
+			val = value;
+		}
 	}
 
 	public static void main(String[] args) {
