@@ -1,6 +1,6 @@
 
 const should = require("should");
-const t22 = require("../src/t22");
+const t22 = require("../target/t22");
 
 describe("prob 22", function(){
 
