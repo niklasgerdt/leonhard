@@ -1,4 +1,4 @@
-package igeek.t1to10;
+package oilers.t1to10;
 
 import java.util.List;
 import java.util.stream.Collectors;

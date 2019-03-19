@@ -1,4 +1,4 @@
-package igeek.t11to20;
+package oilers.t11to20;
 
 public class T11 {
 	private static final int ZERO = 0;
