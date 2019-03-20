@@ -1,4 +1,4 @@
-(ns 28)
+(ns core.28)
 
 (defn solve []
       (loop [sum 4
