@@ -1,7 +1,6 @@
 {
-  "name": "euler",
+  "name": "oilers",
   "version": "1.0.0",
-  "description": "euler problems",
   "main": "t22.js",
   "devDependencies": {
     "babel-cli": "^6.23.0",

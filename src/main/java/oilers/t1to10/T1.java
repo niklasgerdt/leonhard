@@ -1,4 +1,4 @@
-package igeek.t1to10;
+package oilers.t1to10;
 
 import java.util.stream.IntStream;
 import static java.lang.System.out;
