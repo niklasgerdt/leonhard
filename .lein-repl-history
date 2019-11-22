@@ -243,3 +243,4 @@ b
 (core.21/-main)
 (core.21/amicable-numbers (core.21/int-dividers-map (range 1 10001) {}) [])
 exit
+(doc recur)
